@@ -9,12 +9,31 @@ const readout = [
   { key: "Focus", value: "AI web apps · UI/UX" },
 ];
 
+// Decorative barcode: bar widths in px
+const barcode = [2, 1, 3, 1, 1, 2, 4, 1, 2, 1, 1, 3, 2, 1, 4, 2, 1, 1, 3, 1, 2, 2, 1, 4, 1, 1, 2, 3, 1, 2];
+
 export function Hero() {
   const [first, ...rest] = profile.headline.split(" & ");
 
   return (
     <section id="top" className="relative overflow-hidden border-b border-line">
       <div aria-hidden className="hero-grid pointer-events-none absolute inset-0" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="hero-floor" />
+        <div className="hero-horizon" />
+      </div>
+      <p
+        aria-hidden
+        className="vertical-text pointer-events-none absolute right-6 top-24 hidden font-mono text-xs tracking-[0.5em] text-cyan/35 xl:block"
+      >
+        ポートフォリオ ／ SKDP ／ 2026
+      </p>
+      <p
+        aria-hidden
+        className="vertical-text pointer-events-none absolute left-6 top-24 hidden rotate-180 font-mono text-[0.65rem] uppercase tracking-[0.4em] text-muted/50 xl:block"
+      >
+        sys.online // node: mnl-ph
+      </p>
 
       <div className="relative mx-auto grid w-full max-w-6xl gap-14 px-4 pb-20 pt-16 sm:px-6 sm:pt-24 lg:grid-cols-[1.45fr_1fr] lg:items-center lg:gap-16 lg:pb-28">
         <div>
@@ -24,10 +43,10 @@ export function Hero() {
           </p>
 
           <h1 className="font-display text-[2.6rem] font-bold uppercase leading-none tracking-tight text-text sm:text-6xl lg:text-7xl">
-            <span className="glitch block">
+            <span className="glitch chroma block">
               <span className="block">Sean Kenly R.</span>
               <span className="block">
-                Dela Peña<span className="text-cyan">_</span>
+                Dela Peña<span className="caret text-cyan">_</span>
               </span>
               <span aria-hidden className="glitch-layer glitch-layer-a">
                 <span className="block">Sean Kenly R.</span>
@@ -72,10 +91,11 @@ export function Hero() {
 
         <aside aria-label="Profile summary" className="hud-corners">
           <div className="panel p-6 [--panel-fill:rgb(11_14_22/0.85)] sm:p-7">
-            <div className="mb-5 flex items-center justify-between border-b border-line pb-4">
+            <div className="flex items-center justify-between">
               <span className="label">ID // Profile</span>
               <span className="font-mono text-[0.7rem] text-muted">REV.2026</span>
             </div>
+            <div aria-hidden className="hazard mb-5 mt-4 h-1.5 opacity-80" />
             <dl className="space-y-3.5 font-mono text-sm">
               {readout.map((row) => (
                 <div key={row.key} className="grid grid-cols-[6.5rem_1fr] gap-3">
@@ -88,7 +108,15 @@ export function Hero() {
                 <dd className="text-yellow">Seeking SWE internship</dd>
               </div>
             </dl>
-            <div className="mt-6 flex gap-2 border-t border-line pt-5">
+            <div aria-hidden className="mt-6 flex h-7 items-stretch gap-[2px] opacity-60">
+              {barcode.map((w, i) => (
+                <span key={i} className="bg-text" style={{ width: w }} />
+              ))}
+              <span className="ml-auto self-end font-mono text-[0.6rem] tracking-widest text-muted">
+                SKDP-2026
+              </span>
+            </div>
+            <div className="mt-5 flex gap-2 border-t border-line pt-5">
               <a
                 href={profile.github}
                 target="_blank"
@@ -111,6 +139,15 @@ export function Hero() {
           </div>
         </aside>
       </div>
+
+      <a
+        href="#about"
+        aria-label="Scroll to About"
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 font-mono text-[0.65rem] uppercase tracking-[0.4em] text-muted transition-colors hover:text-cyan lg:flex"
+      >
+        Scroll
+        <span aria-hidden className="h-8 w-px bg-gradient-to-b from-cyan to-transparent" />
+      </a>
     </section>
   );
 }

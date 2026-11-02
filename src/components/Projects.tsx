@@ -59,6 +59,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           }
           className={`project-image aspect-[16/10] w-full object-cover ${featured ? "lg:absolute lg:inset-0 lg:aspect-auto lg:h-full" : ""}`}
         />
+        <span aria-hidden className="image-overlay pointer-events-none absolute inset-0" />
         <span className="absolute left-3 top-3 bg-bg/85 px-2 py-1 font-mono text-[0.7rem] uppercase tracking-wider text-cyan">
           P.{String(index + 1).padStart(2, "0")}
           {featured && <span className="text-yellow"> · Featured</span>}

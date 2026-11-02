@@ -7,20 +7,26 @@ type SectionHeadingProps = {
 
 export function SectionHeading({ index, kicker, title, id }: SectionHeadingProps) {
   return (
-    <header className="mb-12 sm:mb-14">
-      <p className="label mb-3 flex items-center gap-3">
+    <header className="relative mb-12 sm:mb-14">
+      <span
+        aria-hidden
+        className="outline-text pointer-events-none absolute -top-10 right-0 select-none font-display text-[7rem] font-bold leading-none sm:-top-14 sm:text-[10rem]"
+      >
+        {index}
+      </span>
+      <p className="label relative mb-3 flex items-center gap-3">
         <span className="text-magenta">{index}</span>
         <span aria-hidden className="h-px w-6 bg-cyan/50" />
         <span>{kicker}</span>
       </p>
-      <div className="flex items-end gap-5">
+      <div className="relative flex items-end gap-5">
         <h2
           id={id}
-          className="font-display text-3xl font-semibold uppercase tracking-wide text-text sm:text-4xl"
+          className="neon-text font-display text-3xl font-semibold uppercase tracking-wide text-text sm:text-4xl"
         >
           {title}
         </h2>
-        <span aria-hidden className="mb-2.5 h-px flex-1 bg-gradient-to-r from-line-strong to-transparent" />
+        <span aria-hidden className="tick-rule mb-2 h-[5px] flex-1" />
       </div>
     </header>
   );

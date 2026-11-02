@@ -18,6 +18,7 @@ export function Contact() {
 
       <div className="hud-corners">
         <div className="panel overflow-hidden p-6 [--chamfer:20px] sm:p-10 lg:p-14">
+          <div aria-hidden className="hazard -mx-6 -mt-6 mb-8 h-1.5 opacity-80 sm:-mx-10 sm:-mt-10 lg:-mx-14 lg:-mt-14" />
           <div className="grid gap-12 lg:grid-cols-[1.3fr_1fr] lg:items-end">
             <div className="min-w-0">
               <p className="label flex items-center gap-3 text-yellow">

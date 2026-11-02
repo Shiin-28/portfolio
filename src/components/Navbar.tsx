@@ -34,6 +34,10 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-bg/80 backdrop-blur-md">
+      <span
+        aria-hidden
+        className="scroll-progress absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-cyan via-magenta to-yellow"
+      />
       <nav
         aria-label="Primary"
         className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6"
