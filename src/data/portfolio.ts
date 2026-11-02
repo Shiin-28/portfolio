@@ -16,8 +16,8 @@ export const profile = {
   githubHandle: "Shiin-28",
   linkedin: "https://www.linkedin.com/in/sean-kenly-dela-pena-004949377/",
   linkedinHandle: "sean-kenly-dela-pena",
-  // Drop your resume at /public/resume.pdf
-  resume: "/resume.pdf",
+  // Drop your resume at /public/delapena_resume.pdf
+  resume: "/delapena_resume.pdf",
 };
 
 export const about = {

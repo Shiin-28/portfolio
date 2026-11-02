@@ -49,7 +49,7 @@ All content lives in [`src/data/portfolio.ts`](src/data/portfolio.ts); component
 
 Static files:
 
-- `public/resume.pdf` is the file behind every "Download Resume" button
+- `public/delapena_resume.pdf` is the file behind every "Download Resume" button
 - `public/projects/*` holds project screenshots; cards crop them to 16:10 (for example 1440×900)
 
 ## Structure
