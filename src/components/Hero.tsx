@@ -20,7 +20,7 @@ export function Hero() {
       <div aria-hidden className="hero-grid pointer-events-none absolute inset-0" />
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="hero-floor" />
-        <div className="hero-horizon" />
+        <div className="hero-glow" />
       </div>
       <p
         aria-hidden

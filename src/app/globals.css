@@ -370,7 +370,7 @@ body::after {
   to { background-position: 0 64px; }
 }
 /* Glow rising off the floor */
-.hero-horizon {
+.hero-glow {
   position: absolute;
   inset: auto 0 0;
   height: 45%;
