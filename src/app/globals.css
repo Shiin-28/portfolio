@@ -1,0 +1,312 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #05060a;
+  --surface: #0b0e16;
+  --surface-2: #10141f;
+  --line: #1b2232;
+  --line-strong: #2a3449;
+  --text: #e8ebf3;
+  --muted: #9aa4ba;
+  --cyan: #00e5ff;
+  --magenta: #ff2fb4;
+  --yellow: #f5e642;
+
+  --chamfer: 12px;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-cyan: var(--cyan);
+  --color-magenta: var(--magenta);
+  --color-yellow: var(--yellow);
+
+  --font-display: var(--font-chakra), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(60rem 30rem at 85% -10%, rgb(0 229 255 / 0.07), transparent 70%),
+    radial-gradient(50rem 30rem at -10% 10%, rgb(255 47 180 / 0.05), transparent 70%);
+  background-repeat: no-repeat;
+  color: var(--text);
+  font-family: var(--font-sans);
+}
+
+/* Faint, static scanlines. Sits above content but is too light to affect legibility. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgb(255 255 255 / 0.018) 0 1px,
+    transparent 1px 3px
+  );
+}
+
+::selection {
+  background: var(--magenta);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+@layer components {
+  /* HUD label: small monospace caption used above headings and in panels */
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+
+  .chamfer {
+    clip-path: polygon(
+      0 0,
+      calc(100% - var(--chamfer)) 0,
+      100% var(--chamfer),
+      100% 100%,
+      var(--chamfer) 100%,
+      0 calc(100% - var(--chamfer))
+    );
+  }
+
+  /*
+   * Bordered chamfer: the element's own background is the border colour and
+   * ::before paints the fill 1px inside it, both clipped to the same shape.
+   */
+  .panel {
+    --panel-border: var(--line);
+    --panel-fill: var(--surface);
+    position: relative;
+    isolation: isolate;
+    background: var(--panel-border);
+    transition: background-color 200ms ease;
+  }
+  .panel,
+  .panel::before {
+    clip-path: polygon(
+      0 0,
+      calc(100% - var(--chamfer)) 0,
+      100% var(--chamfer),
+      100% 100%,
+      var(--chamfer) 100%,
+      0 calc(100% - var(--chamfer))
+    );
+  }
+  .panel::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    z-index: -1;
+    background: var(--panel-fill);
+  }
+
+  /* Corner brackets drawn with gradients on a single pseudo-element */
+  .hud-corners {
+    position: relative;
+  }
+  .hud-corners::after {
+    --c: var(--cyan);
+    --s: 14px;
+    content: "";
+    position: absolute;
+    inset: -6px;
+    pointer-events: none;
+    background:
+      linear-gradient(var(--c), var(--c)) top left / var(--s) 1px,
+      linear-gradient(var(--c), var(--c)) top left / 1px var(--s),
+      linear-gradient(var(--c), var(--c)) top right / var(--s) 1px,
+      linear-gradient(var(--c), var(--c)) top right / 1px var(--s),
+      linear-gradient(var(--c), var(--c)) bottom left / var(--s) 1px,
+      linear-gradient(var(--c), var(--c)) bottom left / 1px var(--s),
+      linear-gradient(var(--c), var(--c)) bottom right / var(--s) 1px,
+      linear-gradient(var(--c), var(--c)) bottom right / 1px var(--s);
+    background-repeat: no-repeat;
+  }
+
+  .btn {
+    --chamfer: 10px;
+    --panel-border: var(--cyan);
+    --panel-fill: var(--bg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    transition:
+      color 150ms ease,
+      background-color 150ms ease;
+  }
+  .btn:hover {
+    --panel-fill: rgb(0 229 255 / 0.08);
+  }
+  .btn-primary {
+    --panel-fill: var(--cyan);
+    color: var(--bg);
+  }
+  .btn-primary:hover {
+    --panel-fill: #7af2ff;
+  }
+  .btn-magenta {
+    --panel-border: var(--magenta);
+    color: var(--magenta);
+  }
+  .btn-magenta:hover {
+    --panel-fill: rgb(255 47 180 / 0.08);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--line-strong);
+    padding: 0.25rem 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text);
+    background: rgb(255 255 255 / 0.02);
+  }
+
+  .hero-grid {
+    background-image:
+      linear-gradient(rgb(0 229 255 / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(0 229 255 / 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 70% 60% at 60% 40%, #000 30%, transparent 75%);
+  }
+}
+
+/* ---------- Glitch: hero name, plays once on load ---------- */
+
+.glitch {
+  position: relative;
+  animation: glitch-main 1100ms steps(1, end) 250ms 1 both;
+}
+.glitch-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+.glitch-layer-a {
+  color: var(--cyan);
+  animation: glitch-a 1100ms steps(1, end) 250ms 1 both;
+}
+.glitch-layer-b {
+  color: var(--magenta);
+  animation: glitch-b 1100ms steps(1, end) 250ms 1 both;
+}
+
+@keyframes glitch-main {
+  0% { transform: translate(0); opacity: 0.4; }
+  8% { transform: translate(-2px, 1px); opacity: 1; }
+  16% { transform: translate(2px, -1px); }
+  28% { transform: translate(0); }
+  44% { transform: translate(-1px, 0); }
+  52%, 100% { transform: translate(0); opacity: 1; }
+}
+@keyframes glitch-a {
+  0% { opacity: 0.9; clip-path: inset(12% 0 70% 0); transform: translate(-6px, 0); }
+  10% { clip-path: inset(55% 0 20% 0); transform: translate(5px, 0); }
+  20% { clip-path: inset(30% 0 52% 0); transform: translate(-3px, 0); }
+  32% { clip-path: inset(78% 0 4% 0); transform: translate(4px, 0); }
+  44% { clip-path: inset(5% 0 85% 0); transform: translate(-2px, 0); }
+  56%, 100% { opacity: 0; clip-path: inset(0 0 100% 0); transform: translate(0); }
+}
+@keyframes glitch-b {
+  0% { opacity: 0.9; clip-path: inset(62% 0 14% 0); transform: translate(6px, 0); }
+  12% { clip-path: inset(8% 0 76% 0); transform: translate(-5px, 0); }
+  24% { clip-path: inset(40% 0 38% 0); transform: translate(3px, 0); }
+  36% { clip-path: inset(84% 0 2% 0); transform: translate(-4px, 0); }
+  48% { clip-path: inset(22% 0 66% 0); transform: translate(2px, 0); }
+  58%, 100% { opacity: 0; clip-path: inset(0 0 100% 0); transform: translate(0); }
+}
+
+/* ---------- Glitch: short one-shot on hover/focus for interactive elements ---------- */
+
+.glitch-hover:hover .glitch-text,
+.glitch-hover:focus-visible .glitch-text,
+.glitch-text.glitch-hover:hover,
+.glitch-text.glitch-hover:focus-visible {
+  animation: glitch-hover 280ms steps(1, end) 1;
+}
+@layer components {
+  .glitch-text {
+    display: inline-block;
+  }
+}
+
+@keyframes glitch-hover {
+  0% { text-shadow: -2px 0 var(--magenta), 2px 0 var(--cyan); transform: translateX(1px); }
+  25% { text-shadow: 2px 0 var(--magenta), -2px 0 var(--cyan); transform: translateX(-1px); }
+  50% { text-shadow: -1px 0 var(--magenta), 1px 0 var(--cyan); transform: translateX(0); }
+  75% { text-shadow: 1px 0 var(--magenta), -1px 0 var(--cyan); }
+  100% { text-shadow: none; transform: none; }
+}
+
+.status-dot {
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgb(245 230 66 / 0.55); }
+  50% { box-shadow: 0 0 0 5px rgb(245 230 66 / 0); }
+}
+
+/* ---------- Reduced motion: drop every non-essential animation ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .glitch-layer {
+    display: none;
+  }
+}
+
+/* ---------- Project cards: border shifts to magenta, title glitches once ---------- */
+
+.project-card:hover .project-title,
+.project-card:focus-within .project-title {
+  animation: glitch-hover 280ms steps(1, end) 1;
+}
+.project-image {
+  transition: transform 400ms ease, filter 400ms ease;
+}
+.project-card:hover .project-image {
+  transform: scale(1.02);
+  filter: saturate(1.15);
+}
