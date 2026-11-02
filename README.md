@@ -1,6 +1,34 @@
 # Sean Kenly R. Dela Peña — Portfolio
 
-Single-page portfolio built with Next.js (App Router), TypeScript, and Tailwind CSS. No UI or animation libraries; all effects are plain CSS.
+**Live site: [seankenlydelapena.vercel.app](https://seankenlydelapena.vercel.app)**
+
+[![Portfolio preview](https://seankenlydelapena.vercel.app/opengraph-image)](https://seankenlydelapena.vercel.app)
+
+Personal portfolio of an AI-driven web developer and UI/UX designer, and 4th-year BS Computer Science (Software Engineering) student at FEU Tech. A cyberpunk-themed single-page site that showcases my projects, skills, experience, and certifications.
+
+## Highlights
+
+- **Projects:** Viscrete (thesis), MapaMars, Papeles, Werewolf, MTGDT, and SideQuest, each with my role, tech stack, and links
+- **Experience:** a timeline of my ACM Media Committee role and team hackathons
+- **Credentials:** education at FEU Tech and certifications with verification IDs
+- **Contact:** email, GitHub, and LinkedIn, plus a downloadable resume
+
+## Built with
+
+- [Next.js](https://nextjs.org) 16 (App Router) and React 19
+- TypeScript
+- Tailwind CSS 4
+- Deployed on [Vercel](https://vercel.com)
+
+No UI or animation libraries: every effect (glitch text, neon borders, the synthwave floor, the ticker) is plain CSS.
+
+## Design notes
+
+- Fully static: every page is prerendered at build time.
+- Responsive from phone width up, with a mobile menu and active-section highlighting.
+- The hero name glitches once on load, and interactive elements get a short glitch on hover. Body text never animates.
+- `prefers-reduced-motion` turns off all non-essential animation.
+- Link previews use an image generated at build time with `next/og`.
 
 ## Run locally
 
@@ -12,19 +40,17 @@ npm run build   # production build
 
 ## Editing content
 
-Everything shown on the page comes from **`src/data/portfolio.ts`**:
+All content lives in [`src/data/portfolio.ts`](src/data/portfolio.ts); components only render it.
 
-- `skills`: grouped stack, mirrored from the GitHub profile README
-- `projects`: set `featured: true` for a full-width card, `inProgress: true` for the badge, `note` for a status line. Leave `liveUrl` / `repoUrl` `undefined` to show "Demo soon" / "Repo soon".
-- `experience`: newest first. `summary` says what you built or did, `points` are your bullets, `tools` render as tags.
-- `certificates`: `credentialId` and `url` add an ID and a Verify link.
+- `skills`: grouped tech stack
+- `projects`: `featured: true` makes a full-width card, `inProgress: true` adds a badge, `note` adds a status line, and `demoFallback` replaces "Demo soon" when there is no live demo
+- `experience`: newest first; `summary` says what you built or did, `points` are bullets, `tools` render as tags, and `team: true` labels a team competition
+- `certificates`: `credentialId` and `url` add an ID and a Verify link
 
-### Files to add
+Static files:
 
-| File | Purpose |
-| --- | --- |
-| `public/resume.pdf` | Target of every "Download Resume" button |
-| `public/projects/*` | Project screenshots, referenced by each project's `image`. Cards crop to 16:10 (e.g. 1440×900). |
+- `public/resume.pdf` is the file behind every "Download Resume" button
+- `public/projects/*` holds project screenshots; cards crop them to 16:10 (for example 1440×900)
 
 ## Structure
 
@@ -33,21 +59,15 @@ src/
   app/
     layout.tsx            fonts, metadata
     page.tsx              section order
-    globals.css           theme tokens, HUD panels, glitch effects
+    globals.css           theme tokens, HUD panels, glitch and neon effects
     icon.svg              favicon
-    opengraph-image.tsx   link-preview image (generated at build time)
-  components/             one file per section + Navbar, icons
+    opengraph-image.tsx   link-preview image
+  components/             one file per section, plus Navbar, Ticker, icons
   data/portfolio.ts       all content
 ```
 
-## Motion and accessibility
+## Contact
 
-- The hero name glitches once on load; links, buttons, and project cards get a short glitch on hover/focus. Body text is never animated.
-- `prefers-reduced-motion: reduce` disables every animation and transition, including smooth scrolling.
-- The scanline overlay is static and very faint.
-
-## Deploy to Vercel
-
-1. Push this folder to a GitHub repository.
-2. In Vercel, **Add New → Project**, import the repo, and keep the detected Next.js defaults.
-3. Optional: if you use a custom domain, set `NEXT_PUBLIC_SITE_URL` (e.g. `https://yourname.dev`) so link previews use it. Otherwise Vercel's production URL is used automatically.
+- Email: [seankenlydelapena@gmail.com](mailto:seankenlydelapena@gmail.com)
+- GitHub: [@Shiin-28](https://github.com/Shiin-28)
+- LinkedIn: [sean-kenly-dela-pena](https://www.linkedin.com/in/sean-kenly-dela-pena-004949377/)
