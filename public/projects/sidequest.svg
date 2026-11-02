@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900">
+  <defs>
+    <pattern id="g" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" fill="none" stroke="#00e5ff" stroke-opacity=".07"/>
+    </pattern>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00e5ff" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#ff2fb4" stop-opacity=".14"/>
+    </linearGradient>
+  </defs>
+  <rect width="1440" height="900" fill="#0b0e16"/>
+  <rect width="1440" height="900" fill="url(#g)"/>
+  <rect width="1440" height="900" fill="url(#glow)"/>
+
+  <g font-family="monospace" fill="#e8ebf3">
+    <text x="120" y="170" font-size="26" fill="#00e5ff" letter-spacing="6">SIDEQUEST // YOUR MIDDLEMAN</text>
+    <text x="120" y="250" font-size="72" font-weight="700" letter-spacing="2">QUEST BOARD</text>
+  </g>
+
+  <g font-family="monospace">
+    <g transform="translate(120 320)">
+      <rect width="380" height="230" fill="#05060a" stroke="#00e5ff" stroke-width="2"/>
+      <text x="28" y="50" font-size="20" fill="#00e5ff">QUEST #001</text>
+      <text x="28" y="100" font-size="26" fill="#e8ebf3">Fix my laptop</text>
+      <text x="28" y="140" font-size="18" fill="#9aa4ba">posted by client</text>
+      <text x="28" y="200" font-size="30" font-weight="700" fill="#f5e642">₱ 500</text>
+    </g>
+    <g transform="translate(530 320)">
+      <rect width="380" height="230" fill="#05060a" stroke="#ff2fb4" stroke-width="2"/>
+      <text x="28" y="50" font-size="20" fill="#ff2fb4">QUEST #002</text>
+      <text x="28" y="100" font-size="26" fill="#e8ebf3">Design a logo</text>
+      <text x="28" y="140" font-size="18" fill="#9aa4ba">posted by client</text>
+      <text x="28" y="200" font-size="30" font-weight="700" fill="#f5e642">₱ 1,200</text>
+    </g>
+    <g transform="translate(940 320)">
+      <rect width="380" height="230" fill="#05060a" stroke="#2a3449" stroke-width="2"/>
+      <text x="28" y="50" font-size="20" fill="#9aa4ba">QUEST #003</text>
+      <text x="28" y="100" font-size="26" fill="#e8ebf3">Tutor for finals</text>
+      <text x="28" y="140" font-size="18" fill="#9aa4ba">posted by client</text>
+      <text x="28" y="200" font-size="30" font-weight="700" fill="#f5e642">₱ 800</text>
+    </g>
+    <g transform="translate(120 600)">
+      <rect width="560" height="70" fill="#00e5ff"/>
+      <text x="28" y="45" font-size="24" font-weight="700" fill="#05060a">ACCEPT QUEST → PROVIDER</text>
+    </g>
+    <text x="120" y="800" font-size="18" fill="#9aa4ba">CLIENT ⇄ QUEST ⇄ SERVICE PROVIDER</text>
+    <text x="1320" y="800" font-size="18" fill="#9aa4ba" text-anchor="end">COVER ART</text>
+  </g>
+</svg>

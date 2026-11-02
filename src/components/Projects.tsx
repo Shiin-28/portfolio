@@ -40,7 +40,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     <article
       className={`project-card panel group flex flex-col hover:[--panel-border:var(--magenta)] ${
         featured
-          ? `md:col-span-2 lg:col-span-3 lg:grid ${reversed ? "lg:grid-cols-[1fr_1.4fr]" : "lg:grid-cols-[1.4fr_1fr]"}`
+          ? `md:col-span-full lg:grid ${reversed ? "lg:grid-cols-[1fr_1.4fr]" : "lg:grid-cols-[1.4fr_1fr]"}`
           : ""
       }`}
     >
@@ -108,7 +108,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           <ProjectLink
             href={project.liveUrl}
             label="Live demo"
-            fallback="Demo soon"
+            fallback={project.demoFallback ?? "Demo soon"}
             icon={<ArrowUpRightIcon width={14} height={14} />}
           />
           <ProjectLink
@@ -124,10 +124,12 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 }
 
 export function Projects() {
+  // Three columns when the smaller cards fill rows evenly, otherwise two
+  const smallCount = projects.filter((p) => !p.featured).length;
   return (
     <Section id="projects">
       <SectionHeading id="projects-title" index="03" kicker="selected_work" title="Projects" />
-      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <div className={`grid gap-5 md:grid-cols-2 ${smallCount % 3 === 0 ? "lg:grid-cols-3" : "lg:grid-cols-2"}`}>
         {projects.map((project, i) => (
           <ProjectCard key={project.title + i} project={project} index={i} />
         ))}

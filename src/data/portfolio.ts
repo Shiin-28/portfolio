@@ -54,6 +54,7 @@ export type Project = {
   image: string;
   imageAlt: string;
   liveUrl?: string; // leave undefined to show "Demo soon"
+  demoFallback?: string; // replaces "Demo soon" when there is no live demo
   repoUrl?: string; // leave undefined to show "Repo soon"
   inProgress?: boolean;
   note?: string; // short status note shown under the description
@@ -125,6 +126,18 @@ export const projects: Project[] = [
     repoUrl: "https://github.com/Shiin-28/mtgdt",
     inProgress: true,
     note: "Some store sites block automated price checks, so store coverage is still partial.",
+  },
+  {
+    title: "SideQuest",
+    tagline: "Group project · ProXy4",
+    description:
+      "“Your Middleman”: a web platform that connects clients who post paid tasks, called quests, with service providers who take them on. Client and provider accounts, quests, and transactions are stored in a MySQL database.",
+    role: "Team member",
+    stack: ["PHP", "MySQL", "HTML", "CSS"],
+    image: "/projects/sidequest.svg",
+    imageAlt: "SideQuest cover art: a quest board of paid tasks",
+    repoUrl: "https://github.com/Shiin-28/SideQuest",
+    demoFallback: "Runs locally",
   },
 ];
 
