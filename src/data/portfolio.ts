@@ -40,7 +40,7 @@ export const skills: SkillGroup[] = [
   { title: "Languages", code: "LANG", items: ["Python", "C++", "JavaScript", "TypeScript", "PHP"] },
   { title: "Frameworks", code: "FRMW", items: ["React", "Next.js"] },
   { title: "Databases", code: "DATA", items: ["Supabase", "MySQL"] },
-  { title: "Design Tools", code: "DSGN", items: ["Figma", "Adobe Photoshop", "Adobe Premiere Pro"] },
+  { title: "Design Tools", code: "DSGN", items: ["Figma", "Adobe Photoshop", "Adobe Lightroom", "Adobe Premiere Pro"] },
   { title: "AI Tools", code: "AI", items: ["Claude", "Gemini"] },
   { title: "Dev Tools", code: "DEV", items: ["Git", "GitHub", "Vercel"] },
 ];
