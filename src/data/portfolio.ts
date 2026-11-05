@@ -12,6 +12,8 @@ export const profile = {
     "4th-year Computer Science student at FEU Tech building AI-powered web apps with interfaces people actually enjoy using.",
   status: "Open to software engineering internships",
   email: "seankenlydelapena@gmail.com",
+  phone: "0995 834 9925",
+  phoneHref: "tel:+639958349925",
   github: "https://github.com/Shiin-28",
   githubHandle: "Shiin-28",
   linkedin: "https://www.linkedin.com/in/sean-kenly-dela-pena-004949377/",

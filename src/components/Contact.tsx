@@ -1,12 +1,13 @@
 import { profile } from "@/data/portfolio";
 import { CopyEmail } from "./CopyEmail";
-import { ArrowUpRightIcon, GitHubIcon, LinkedInIcon, MailIcon } from "./icons";
+import { ArrowUpRightIcon, GitHubIcon, LinkedInIcon, MailIcon, PhoneIcon } from "./icons";
 import { Section, SectionHeading } from "./SectionHeading";
 
 const mailto = `mailto:${profile.email}?subject=${encodeURIComponent("Internship opportunity")}`;
 
 const channels = [
   { label: "Email", value: profile.email, href: mailto, icon: MailIcon, external: false },
+  { label: "Phone", value: profile.phone, href: profile.phoneHref, icon: PhoneIcon, external: false },
   { label: "GitHub", value: `@${profile.githubHandle}`, href: profile.github, icon: GitHubIcon, external: true },
   { label: "LinkedIn", value: profile.linkedinHandle, href: profile.linkedin, icon: LinkedInIcon, external: true },
 ];
