@@ -86,8 +86,8 @@ export const projects: Project[] = [
     stack: ["React", "TypeScript", "three.js", "Vite", "Supabase", "NASA JPL Horizons"],
     image: "/projects/mapamars.png",
     imageAlt: "MapaMars interactive 3D globe: Mars with NASA landing sites and the orbits of Phobos, Deimos and several orbiters",
-    liveUrl: "https://mapa-mars.vercel.app",
-    repoUrl: "https://github.com/S-Urchin/MapaMars",
+    liveUrl: "https://mapamarso.vercel.app",
+    repoUrl: "https://github.com/S-Urchin/MapaMarso",
     featured: true,
   },
   {
