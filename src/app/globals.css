@@ -385,9 +385,6 @@ body::after {
 .ticker-track {
   animation: ticker 48s linear infinite;
 }
-.ticker:hover .ticker-track {
-  animation-play-state: paused;
-}
 @keyframes ticker {
   to { transform: translateX(-50%); }
 }

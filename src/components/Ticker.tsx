@@ -2,6 +2,7 @@ const items = [
   "Open to front-end & QA internships",
   "AI-driven web developer",
   "UI/UX designer",
+  "QA tester",
   "Next.js · TypeScript · Supabase",
   "BSCS Software Engineering · FEU Tech",
   "Based in the Philippines",
