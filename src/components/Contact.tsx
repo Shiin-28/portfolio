@@ -32,7 +32,7 @@ export function Contact() {
                 <span className="text-cyan">Let&apos;s talk.</span>
               </p>
               <p className="mt-5 max-w-lg leading-relaxed text-muted">
-                I&apos;m looking for a software engineering internship. If my work fits your
+                I&apos;m looking for a front-end development or QA internship. If my work fits your
                 team, send me an email.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">

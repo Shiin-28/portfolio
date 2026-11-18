@@ -10,7 +10,7 @@ export const profile = {
   headline: "AI-Driven Web Developer & UI/UX Designer",
   intro:
     "4th-year Computer Science student at FEU Tech building AI-powered web apps with interfaces people actually enjoy using.",
-  status: "Open to software engineering internships",
+  status: "Open to front-end & QA internships",
   email: "seankenlydelapena@gmail.com",
   phone: "0995 834 9925",
   phoneHref: "tel:+639958349925",
@@ -26,12 +26,12 @@ export const about = {
   paragraphs: [
     "I'm a fourth-year BS Computer Science student specializing in Software Engineering at FEU Tech. I work where AI and the web meet: building applications that put machine learning in front of real users, and designing the interfaces that make that feel simple.",
     "As a developer and UI/UX designer, I care about the whole path from a rough idea to a shipped product: research, wireframes, clean front-end code, and the model or API doing the heavy lifting behind it. On my thesis team, Visionaries, I handle UI/UX design and QA for Viscrete, a computer-vision system that detects defects in concrete walls.",
-    "I'm currently looking for a software engineering internship where I can contribute to a real product team, learn from experienced engineers, and ship work that matters.",
+    "I'm currently looking for a front-end development or QA internship where I can contribute to a real product team, learn from experienced engineers, and ship work that matters.",
   ],
   focus: [
     { label: "Building", value: "AI-powered web apps" },
     { label: "Designing", value: "Interfaces & user flows" },
-    { label: "Seeking", value: "SWE internship" },
+    { label: "Seeking", value: "Front-end / QA internship" },
   ],
 };
 

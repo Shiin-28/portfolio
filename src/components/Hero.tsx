@@ -105,7 +105,7 @@ export function Hero() {
               ))}
               <div className="grid grid-cols-[6.5rem_1fr] gap-3">
                 <dt className="uppercase tracking-wider text-muted">Status</dt>
-                <dd className="text-yellow">Seeking SWE internship</dd>
+                <dd className="text-yellow">Seeking front-end / QA internship</dd>
               </div>
             </dl>
             <div aria-hidden className="mt-6 flex h-7 items-stretch gap-[2px] opacity-60">

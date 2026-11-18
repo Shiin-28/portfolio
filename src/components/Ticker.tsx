@@ -1,5 +1,5 @@
 const items = [
-  "Open to SWE internships",
+  "Open to front-end & QA internships",
   "AI-driven web developer",
   "UI/UX designer",
   "Next.js · TypeScript · Supabase",
