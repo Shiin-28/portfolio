@@ -25,7 +25,7 @@ export const profile = {
 export const about = {
   paragraphs: [
     "I'm a fourth-year BS Computer Science student specializing in Software Engineering at FEU Tech. I work where AI and the web meet: building applications that put machine learning in front of real users, and designing the interfaces that make that feel simple.",
-    "As a developer and UI/UX designer, I care about the whole path from a rough idea to a shipped product: research, wireframes, clean front-end code, and the model or API doing the heavy lifting behind it. On my thesis team, Visionaries, I'm the UI/UX designer for Viscrete, a computer-vision system that detects defects in concrete walls.",
+    "As a developer and UI/UX designer, I care about the whole path from a rough idea to a shipped product: research, wireframes, clean front-end code, and the model or API doing the heavy lifting behind it. On my thesis team, Visionaries, I handle UI/UX design and QA for Viscrete, a computer-vision system that detects defects in concrete walls.",
     "I'm currently looking for a software engineering internship where I can contribute to a real product team, learn from experienced engineers, and ship work that matters.",
   ],
   focus: [
@@ -69,7 +69,7 @@ export const projects: Project[] = [
     tagline: "Team thesis · Visionaries",
     description:
       "Visual Inspection System for Concrete Evaluation: a modular system that automates concrete wall defect detection. Inspectors upload wall images, which are validated, enhanced with CLAHE preprocessing, run through a YOLOv11 detection model, and compiled into a PDF inspection report.",
-    role: "UI/UX Designer",
+    role: "UI/UX Designer & QA",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "YOLOv11"],
     image: "/projects/viscrete.png",
     imageAlt: "Viscrete landing page: Visual Inspection System for Concrete Evaluation",
