@@ -7,7 +7,7 @@ export const profile = {
   name: "Sean Kenly R. Dela Peña",
   shortName: "Sean Dela Peña",
   initials: "SK.DP",
-  headline: "AI-Driven Web Developer & UI/UX Designer",
+  headline: "AI-Driven Web Developer, UI/UX Designer & QA Tester",
   intro:
     "4th-year Computer Science student at FEU Tech building AI-powered web apps with interfaces people actually enjoy using.",
   status: "Open to front-end & QA internships",
